@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Tube Sub Export",
+  "version": "0.1.1",
+  "author": "PrO14",
+  "developer": {
+    "name": "PrO14"
+  },
+  "short_name": "TSE",
+
+  "permissions": [
+  ],
+
+  "description": "Adds download button for subscription list in xml format.",
+
+  "icons": {
+    "48": "icons/tse.svg",
+    "96": "icons/tse.svg"
+  },
+
+  "content_scripts": [{
+    "css" : ["style.css"],
+    "matches": ["*://www.youtube.com/feed/channels"],
+    "js": ["jquery.js", "tubeSubExport.js"]
+  }]
+
+}

@@ -1,0 +1,15 @@
+#sub-exporter-container{
+     width: 100%;
+     display: flex;
+     flex-flow: row nowrap;
+     justify-content: flex-end;
+     padding: 10px;
+}
+
+#sub-exporter-container > paper-button:first-child{
+     display:flex; 
+}
+
+#sub-exporter-container > paper-button{
+     display:none; 
+}
