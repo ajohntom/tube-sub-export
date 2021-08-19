@@ -6,10 +6,63 @@
      padding: 10px;
 }
 
-#sub-exporter-container > paper-button:first-child{
+#sub-exporter-container > #sub-exporter-button{
      display:flex; 
+     align-self: flex-end;
+     height: 50px;
+     flex-basis: 10%;
+     cursor: pointer;
+     background-color: #b71c1c;;
+     border-radius: 5px;
+     padding:5px;
+     text-align:center;
+     box-shadow: 0px 0px 0px 0px #282828;
+     transition: 300ms;
 }
 
-#sub-exporter-container > paper-button{
-     display:none; 
+#sub-exporter-container > #sub-exporter-progressbar-container{
+     display:flex;
+     align-self: flex-start;
+     flex-basis: 85%;
+     margin-right: 5%;
+     transition: 100ms;
+     opacity: 1;
+     margin-top:auto;
+     margin-bottom:auto;
+}
+
+#sub-exporter-container > #sub-exporter-progressbar-container > #sub-exporter-progressbar{
+     order: 2;
+     flex-basis: 90%;
+}
+#sub-exporter-container > #sub-exporter-progressbar-container > #sub-exporter-progressbar-label{
+     order: 1;
+     flex-basis: 10%;
+}
+
+#sub-exporter-container > #sub-exporter-progressbar-container.hidden{
+     transition: 100ms;
+     opacity: 0;
+}
+
+#sub-exporter-container > #sub-exporter-button:hover{
+     display:flex; 
+     align-self: flex-end;
+     height: 50px;
+     flex-basis: 10%;
+     cursor: pointer;
+     background-color: #b71c1c;;
+     border-radius: 5px;
+     padding:5px;
+     text-align:center;
+     box-shadow: 0px 0px 2px 0px #282828;
+     transition: 300ms;
+}
+
+#sub-exporter-container > #sub-exporter-button > #sub-exporter-button-text{
+     font-weight: 600;
+     color: #ffffff;
+     text-transform: uppercase;
+     user-select: none;
+     margin:auto;
 }

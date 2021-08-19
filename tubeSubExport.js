@@ -4,27 +4,46 @@
         primaryContainer = primaryContainer.find("ytd-section-list-renderer");
         primaryContainer = primaryContainer.find("ytd-item-section-renderer");
         //primaryContainer = primaryContainer.find("#grid-container");
-        var container = $('<ytd-subscribe-button-renderer/>', {
+        var container = $('<div/>', {
             id: 'sub-exporter-container',
             "class": "style-scope",
         }).prependTo(primaryContainer);
-        var button = $('<paper-button/>', {
+        var button = $('<div/>', {
             id: 'sub-exporter-button',
-            subscribed: "",
-            "class": "style-scope ytd-subscribe-button-renderer",
+            "class": "style-scope",
         }).prependTo(container);
-        var buttonText = $('<yt-formatted-string/>', {
-            id: 'sub-exporter-button',
-            "class": "style-scope ytd-subscribe-button-renderer",
+        var buttonText = $('<span/>', {
+            id: 'sub-exporter-button-text',
+            "class": "style-scope",
         }).prependTo(button);
         buttonText.html("download subscriptions xml");
         button.click(function () {
             getSubsXML();
         }.bind(this));
+        var progressBarContainer = $('<div/>', {
+            id: 'sub-exporter-progressbar-container',
+            "class": "style-scope hidden",
+        }).prependTo(container);
+        var progressBarLabel = $('<label/>',{
+            id: 'sub-exporter-progressbar-label',
+            "for": 'sub-exporter-progressbar'
+        }).prependTo(progressBarContainer);
+        progressBarLabel.html("Progress:")
+        var progressBar = $('<meter/>', {
+            id: 'sub-exporter-progressbar',
+            "class": "style-scope",
+            min: 0,
+            max: 100,
+            value: 0
+        }).prependTo(progressBarContainer);
     });
 
     //Get sub names and direct links
     function getSubsXML() {
+        //Reset meter
+        $("#sub-exporter-progressbar").attr("value", 0);
+        //Show progress bar upon fetch start
+        $("#sub-exporter-progressbar-container").toggleClass("hidden");
         //Get the subscriptions
         var ytSubsRow = $("ytd-channel-renderer");
         var channelInfos = [];
@@ -51,7 +70,8 @@
                     context: {
                         def: dfd,
                         channelName: key,
-                        channelLinks: channelLinks
+                        channelLinks: channelLinks,
+                        channelConunt: channelConunt,
                     },
                     success: function (data) {
                         var html = $.parseHTML(data);
@@ -59,14 +79,24 @@
                             if (html[i].rel == "canonical") {
                                 this.channelLinks[this.channelName] = html[i].href;
                                 this.def.resolve("Fetched");
+                                var value = parseFloat($("#sub-exporter-progressbar").attr("value"));
+                                console.log(value, 1/this.channelConunt*100);
+                                $("#sub-exporter-progressbar").attr("value", value + (1/this.channelConunt*100));
                             }
                         }
                     }
                 });
             }
+            else{
+                var value = parseFloat($("#sub-exporter-progressbar").attr("value"));
+                $("#sub-exporter-progressbar").attr("value", value + (1/channelConunt*100));
+                console.log(value, 1/channelConunt*100);
+            }
         }
         $.when.apply($, defs).done(function () {
             parseFeedLinks(channelLinks);
+            //Hide progress bar upon fetch done
+            $("#sub-exporter-progressbar-container").toggleClass("hidden");
         }.bind(this));
     }
 
