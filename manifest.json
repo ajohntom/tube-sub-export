@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Tube Sub Export",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "PrO14",
   "developer": {
     "name": "PrO14"
@@ -20,7 +20,7 @@
 
   "content_scripts": [{
     "css" : ["style.css"],
-    "matches": ["*://www.youtube.com/feed/channels"],
+    "matches": ["*://www.youtube.com/feed/channels*"],
     "js": ["jquery.js", "tubeSubExport.js"]
   }]
 

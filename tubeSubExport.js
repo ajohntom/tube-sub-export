@@ -29,7 +29,7 @@
             "for": 'sub-exporter-progressbar'
         }).prependTo(progressBarContainer);
         progressBarLabel.html("Progress:")
-        var progressBar = $('<meter/>', {
+        var progressBar = $('<progress/>', {
             id: 'sub-exporter-progressbar',
             "class": "style-scope",
             min: 0,
@@ -80,7 +80,6 @@
                                 this.channelLinks[this.channelName] = html[i].href;
                                 this.def.resolve("Fetched");
                                 var value = parseFloat($("#sub-exporter-progressbar").attr("value"));
-                                console.log(value, 1/this.channelConunt*100);
                                 $("#sub-exporter-progressbar").attr("value", value + (1/this.channelConunt*100));
                             }
                         }
@@ -90,7 +89,6 @@
             else{
                 var value = parseFloat($("#sub-exporter-progressbar").attr("value"));
                 $("#sub-exporter-progressbar").attr("value", value + (1/channelConunt*100));
-                console.log(value, 1/channelConunt*100);
             }
         }
         $.when.apply($, defs).done(function () {

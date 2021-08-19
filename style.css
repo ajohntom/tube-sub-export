@@ -31,13 +31,39 @@
      margin-bottom:auto;
 }
 
+progress {
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     background-color: #DDDDDD;
+     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+     border: none;
+}
+
+progress::-webkit-progress-bar{
+     background-color: #DDDDDD;
+     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+     border: none;
+}
+
+progress::-webkit-progress-value{
+     background-color: #b71c1c;
+}
+
+progress::-moz-progress-bar{
+     background-color: #b71c1c; 
+}
+
 #sub-exporter-container > #sub-exporter-progressbar-container > #sub-exporter-progressbar{
      order: 2;
      flex-basis: 90%;
 }
+
+
 #sub-exporter-container > #sub-exporter-progressbar-container > #sub-exporter-progressbar-label{
      order: 1;
      flex-basis: 10%;
+     font-size: 14px;
 }
 
 #sub-exporter-container > #sub-exporter-progressbar-container.hidden{
