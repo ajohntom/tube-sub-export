@@ -20,6 +20,47 @@
      transition: 300ms;
 }
 
+#sub-exporter-container > #sub-instruction{
+	display:flex; 
+	flex-flow: column nowrap;
+	align-self: flex-end;
+	flex-basis: 100%;
+	cursor:auto;
+	background-color: #b71c1c;;
+	border-radius: 5px;
+	padding:5px;
+	text-align:center;
+	box-shadow: 0px 0px 0px 0px #282828;
+	transition: 300ms;
+}
+
+#sub-exporter-container > #sub-instruction > #sub-instruction-text{
+	font-weight: 600;
+	font-size: 14px;
+	color: #ffffff;
+	text-transform: uppercase;
+	user-select: none;
+	margin:auto;
+	order:1;
+}
+
+#sub-exporter-container > #sub-instruction > #sub-log-text{
+	font-weight: 600;
+	color: #ffffff;
+	text-transform: uppercase;
+	user-select: none;
+	margin:auto;
+	background-color: #282828;
+	width: 90%;
+	border-radius: 2px;
+	order:2;
+}
+
+#sub-exporter-container > #sub-instruction > #sub-log-text::before{
+	content:"Log events:";
+	font-size:12px;
+}
+
 #sub-exporter-container > #sub-exporter-progressbar-container{
      display:flex;
      align-self: flex-start;
