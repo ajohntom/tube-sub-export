@@ -1,5 +1,6 @@
 # tube-sub-export
-Browser add-on/extension to download YouTube subscription list as an XML, in a fashion it used to work in Subscription Manager.
+Browser add-on/extension to download YouTube subscription list as an XML, in a fashion it used to work in Subscription Manager. 
+Note: Subscription Manager's page is https://www.youtube.com/feed/channels. This add-on/extension uses ONLY that link to load, and accomplish the XML generation upon user request.
 
 The Firefox version is live on Mozilla Add-On Gallery: https://addons.mozilla.org/en-US/firefox/addon/tube-sub-export/
 
